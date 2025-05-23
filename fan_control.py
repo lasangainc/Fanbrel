@@ -3,8 +3,8 @@ import time
 import os
 
 FAN_PIN = 14  # GPIO14 (BCM)
-ON_TEMP = 60  # degrees Celsius
-OFF_TEMP = 50  # degrees Celsius
+ON_TEMP = 80  # degrees Celsius
+OFF_TEMP = 60  # degrees Celsius
 
 GPIO.setmode(GPIO.BCM)
 GPIO.setup(FAN_PIN, GPIO.OUT)
