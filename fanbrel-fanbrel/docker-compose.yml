@@ -1,0 +1,28 @@
+version: "3.7"
+
+services:
+  app:
+    build: 
+      context: ./app
+      dockerfile: Dockerfile
+    container_name: fanbrel-fanbrel_app
+    restart: unless-stopped
+    ports:
+      - "3500:3500"
+    volumes:
+      - ${APP_DATA_DIR}/data:/data
+    devices:
+      - /dev/gpiomem:/dev/gpiomem
+    privileged: true
+    environment:
+      - PYTHONUNBUFFERED=1
+    networks:
+      default:
+        ipv4_address: 10.21.21.10
+
+networks:
+  default:
+    name: fanbrel-fanbrel_default
+    ipam:
+      config:
+        - subnet: 10.21.21.0/24 
