@@ -1,0 +1,9 @@
+services:
+  fanbrel:
+    build:
+      context: .
+    container_name: fanbrel
+    restart: unless-stopped
+    privileged: true
+    volumes:
+      - ./fan_control.py:/app/fan_control.py
