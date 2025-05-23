@@ -1,0 +1,33 @@
+FROM python:3.9-slim@sha256:5f0424e6315a86dda0f783d58d0a0956103a123d83c3e67773111f9c8443c574
+
+# Install required packages
+RUN apt-get update && apt-get install -y \
+    python3-rpi.gpio \
+    && rm -rf /var/lib/apt/lists/*
+
+# Create app directory
+WORKDIR /app
+
+# Install Python dependencies
+COPY requirements.txt .
+RUN pip install --no-cache-dir -r requirements.txt
+
+# Copy application files
+COPY . .
+
+# Create data directory with proper permissions
+RUN mkdir -p /data && \
+    chmod 777 /data
+
+# Make scripts executable
+RUN chmod +x fan_control.py
+
+# Create non-root user
+RUN useradd -m -u 1000 umbrel
+USER umbrel
+
+# Expose port for web UI
+EXPOSE 3500
+
+# Run the fan control script
+CMD ["python3", "fan_control.py"] 

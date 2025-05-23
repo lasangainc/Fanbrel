@@ -1,0 +1,36 @@
+manifestVersion: 1
+id: fanbrel-fanbrel
+name: Fanbrel
+tagline: Smart Fan Control for your Umbrel
+icon: https://svgur.com/i/11.svg
+category: System
+version: "1.0.0"
+port: 3500
+description: >-
+  Fanbrel is a smart fan controller for your Umbrel device. It monitors CPU temperature 
+  and automatically controls a GPIO-connected fan to keep your system cool. Features include:
+  
+  • Automatic fan control based on CPU temperature
+  • Web interface showing real-time temperature and fan status
+  • Configurable temperature thresholds
+  • Energy-efficient operation
+
+developer: Your Name
+website: https://github.com/yourusername/fanbrel
+submitter: Your Name
+submission: https://github.com/yourusername/fanbrel
+repo: https://github.com/yourusername/fanbrel
+support: https://github.com/yourusername/fanbrel/issues
+dependencies: []
+path: ""
+defaultUsername: ""
+defaultPassword: ""
+deterministicPassword: false
+permissions:
+  - device
+  - privileged
+  - hw-temp
+gallery:
+  - 1.jpg
+  - 2.jpg
+  - 3.jpg 
